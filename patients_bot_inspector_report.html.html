@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inspector Report — Patients Bot</title>
+  <style>
+    :root{--bg:#f7f8fb;--card:#ffffff;--accent:#0b76ef;--muted:#6b7280}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+         background:var(--bg); margin:0; padding:32px; color:#0f172a}
+    .container{max-width:900px; margin:0 auto}
+    .card{background:var(--card); padding:28px; border-radius:12px; box-shadow:0 6px 24px rgba(11,118,239,0.06)}
+    header{display:flex; align-items:center; gap:16px}
+    .badge{background:var(--accent); color:#fff; padding:8px 12px; border-radius:999px; font-weight:600}
+    h1{margin:0; font-size:26px}
+    p.lead{color:var(--muted); margin-top:8px}
+    hr{border:none; border-top:1px solid #eef2ff; margin:20px 0}
+    section{margin-top:12px}
+    h2{font-size:18px; margin-bottom:8px}
+    ul{margin:8px 0 0 20px}
+    footer{margin-top:20px; color:var(--muted); font-size:13px}
+    .fixes{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .fix{background:#fbfcff; border-radius:8px; padding:12px}
+    .callout{background:#fff8e6; border-left:4px solid #ffb020; padding:10px; border-radius:6px}
+    code{background:#f1f5f9; padding:2px 6px; border-radius:6px; font-family:monospace}
+    @media (max-width:640px){.fixes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="badge">Inspector</div>
+        <div>
+          <h1>🩺 Patients Bot — Mini Inspector Report</h1>
+          <p class="lead">A clear, shareable summary of concerns and fixes for the company's patient‑screening AI.</p>
+        </div>
+      </header>
+
+      <hr />
+
+      <section>
+        <h2>🔎 Case snapshot</h2>
+        <p>The company uses an AI system ("Patients Bot") to screen patients for acceptance (e.g., treatment, coverage, or trial eligibility). Observed behavior: the bot rejects patients with chronic diseases at a higher rate than those with normal cases.</p>
+      </section>
+
+      <section>
+        <h2>🔍 What's happening?</h2>
+        <p>The model evaluates patient records and outputs accept/reject decisions. The result—disproportionate rejection of chronic patients—suggests either biased training data, problematic features, or a decision threshold that disadvantages this group.</p>
+      </section>
+
+      <section>
+        <h2>🚨 Why this matters</h2>
+        <ul>
+          <li><strong>Fairness:</strong> Chronic conditions are a protected/at‑risk group in practice; higher rejection rates amount to discrimination.</li>
+          <li><strong>Ethics:</strong> Excluding people who often need more care worsens health inequality.</li>
+          <li><strong>Transparency:</strong> Patients likely receive no meaningful explanation for rejection, hurting trust.</li>
+          <li><strong>Legal risk:</strong> Could violate disability or anti‑discrimination laws depending on jurisdiction.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🛠 Recommended fixes (concise)</h2>
+        <div class="fixes">
+          <div class="fix">
+            <h3>Data & training</h3>
+            <ul>
+              <li>Ensure chronic patients are well represented in training and validation sets.</li>
+              <li>Use stratified sampling and synthetic data augmentation if needed.</li>
+            </ul>
+          </div>
+          <div class="fix">
+            <h3>Model & evaluation</h3>
+            <ul>
+              <li>Run fairness metrics (e.g., disparate impact, equalized odds) and compare groups.</li>
+              <li>Constrain training for fairness or use post‑processing to rebalance decisions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:8px"></div>
+
+        <div class="fixes">
+          <div class="fix">
+            <h3>Transparency</h3>
+            <ul>
+              <li>Provide human‑readable explanations for decisions (local feature attributions, counterfactuals).</li>
+              <li>Offer a clear appeals path and the ability to request human review.</li>
+            </ul>
+          </div>
+          <div class="fix">
+            <h3>Governance</h3>
+            <ul>
+              <li>Introduce regular audits, logging, and external review.</li>
+              <li>Include clinicians in the loop for sensitive cases.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚖️ Quick implementation checklist</h2>
+        <ul>
+          <li>Run a fairness audit: group-wise reject rates &mdash; <code>reject_rate_chronic vs reject_rate_normal</code></li>
+          <li>Retrain/adjust thresholds to align error rates where clinically appropriate</li>
+          <li>Add decision explanations and an appeals workflow</li>
+          <li>Document changes and publish audit summaries</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="callout">✅ Verdict</h2>
+        <p class="callout">Patients Bot shows problematic outcomes but can be improved. With better data practices, fairness constraints, clinician oversight, and transparency, it can become an equitable screening tool instead of a hidden gatekeeper.</p>
+      </section>
+
+      <footer>
+        <div>Prepared by: <strong>Inspector (your friendly AI assistant)</strong></div>
+        <div style="margin-top:6px">Share with your teacher: download or open this file in a browser. Feel free to edit the text before handing it in.</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

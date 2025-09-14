@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inspector Report — Customer Bot</title>
+  <style>
+    :root{--bg:#f7f8fb;--card:#ffffff;--accent:#0b76ef;--muted:#6b7280}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+         background:var(--bg); margin:0; padding:32px; color:#0f172a}
+    .container{max-width:900px; margin:0 auto}
+    .card{background:var(--card); padding:28px; border-radius:12px; box-shadow:0 6px 24px rgba(11,118,239,0.06)}
+    header{display:flex; align-items:center; gap:16px}
+    .badge{background:var(--accent); color:#fff; padding:8px 12px; border-radius:999px; font-weight:600}
+    h1{margin:0; font-size:26px}
+    p.lead{color:var(--muted); margin-top:8px}
+    hr{border:none; border-top:1px solid #eef2ff; margin:20px 0}
+    section{margin-top:12px}
+    h2{font-size:18px; margin-bottom:8px}
+    ul{margin:8px 0 0 20px}
+    footer{margin-top:20px; color:var(--muted); font-size:13px}
+    .fixes{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .fix{background:#fbfcff; border-radius:8px; padding:12px}
+    .callout{background:#fff8e6; border-left:4px solid #ffb020; padding:10px; border-radius:6px}
+    code{background:#f1f5f9; padding:2px 6px; border-radius:6px; font-family:monospace}
+    @media (max-width:640px){.fixes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="badge">Inspector</div>
+        <div>
+          <h1>🛒 Customer Bot — Mini Inspector Report</h1>
+          <p class="lead">Why this AI is blocking credit card users more often, and how to fix it responsibly.</p>
+        </div>
+      </header>
+
+      <hr />
+
+      <section>
+        <h2>🔎 Case snapshot</h2>
+        <p>The company uses an AI system ("Customer Bot") to screen transactions. Observed behavior: customers paying with <strong>credit cards</strong> are rejected more often than those paying with <strong>cash</strong> or <strong>ATM/debit</strong> cards.</p>
+      </section>
+
+      <section>
+        <h2>🔍 What's happening?</h2>
+        <p>The AI evaluates transactions (fraud, eligibility, risk checks). The higher rejection rate for credit-card users suggests the model has either learned biased correlations or over-weighted payment method as a risk feature.</p>
+      </section>
+
+      <section>
+        <h2>🚨 Why this is a problem</h2>
+        <ul>
+          <li><strong>Proxy discrimination:</strong> Payment method itself isn’t protected, but it can correlate with age, income, or location, leading to indirect discrimination.</li>
+          <li><strong>Customer trust:</strong> False rejections frustrate legitimate buyers and damage loyalty.</li>
+          <li><strong>Business impact:</strong> Lost sales and higher churn from annoyed credit-card users.</li>
+          <li><strong>Operational cost:</strong> More manual reviews from false alarms.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🛠 Recommended fixes (concise)</h2>
+        <div class="fixes">
+          <div class="fix">
+            <h3>Data & features</h3>
+            <ul>
+              <li>Audit features to check if <em>payment method</em> or proxies drive rejections.</li>
+              <li>Downweight or remove payment method if not causally justified.</li>
+            </ul>
+          </div>
+          <div class="fix">
+            <h3>Model & thresholds</h3>
+            <ul>
+              <li>Use fairness constraints or post-processing to rebalance approval rates.</li>
+              <li>Apply calibrated thresholds per method to avoid blanket rejections.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:8px"></div>
+
+        <div class="fixes">
+          <div class="fix">
+            <h3>Customer flow</h3>
+            <ul>
+              <li>Replace hard rejections with step-up verification (OTP, quick human check).</li>
+              <li>Give customers a clear reason and a recourse path if flagged.</li>
+            </ul>
+          </div>
+          <div class="fix">
+            <h3>Monitoring</h3>
+            <ul>
+              <li>Track reject rates by payment method weekly.</li>
+              <li>Alert when disparities exceed threshold.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚖️ Quick audit checklist</h2>
+        <ul>
+          <li>Compare <code>reject_rate_credit</code> vs <code>reject_rate_debit</code> vs <code>reject_rate_cash</code></li>
+          <li>Control for transaction amount, merchant, and device in the analysis</li>
+          <li>Manually review a sample of flagged credit-card transactions</li>
+          <li>Test model with <em>payment method removed</em> and measure fraud-detection performance</li>
+          <li>Implement fairness-aware thresholding if removal is infeasible</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="callout">✅ Verdict</h2>
+        <p class="callout">Customer Bot isn’t malicious, but it’s unfairly harsh on credit-card users. With better feature handling, fairness checks, and soft verification instead of hard blocks, it can be both fair and effective.</p>
+      </section>
+
+      <footer>
+        <div>Prepared by: <strong>Inspector (your friendly AI assistant)</strong></div>
+        <div style="margin-top:6px">Share with your teacher: download or open this file in a browser. Edit text freely before submission.</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
